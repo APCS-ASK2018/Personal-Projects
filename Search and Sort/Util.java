@@ -1,10 +1,4 @@
 
-/**
- * Write a description of class Util here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
 public final class Util
 {
     private Util() { /* I don't want this instantiable! :p */ }
