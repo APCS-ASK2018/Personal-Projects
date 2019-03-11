@@ -1,8 +1,4 @@
 
-/**
- * Quick Sort Practice
- * For int[]
- */
 public final class QuickSortInts
 {
     private QuickSortInts() { /* I don't want this instantiable! :p */ }
@@ -12,7 +8,7 @@ public final class QuickSortInts
     public static void showSteps(boolean tf) {showSteps = tf;}
     private static void printStep(int start, int end, int i1, int i2) {
         if(showSteps) {
-            System.out.print("  Partition [" + start + "," + end + "]\tSwap " + i1 + "<->" + i2 + "\t");
+            System.out.print("  Partition [" + start + "," + end + "]\tSwapped " + i1 + "<->" + i2 + "\t");
             Util.printArr(arr);
         }
     }
@@ -56,17 +52,16 @@ public final class QuickSortInts
                 continue;
             }
             
-            printStep(low, high, lowPoint, highPoint);
-            
             // Pointer found target needing to be swapped
-            swap(lowPoint, highPoint);            
+            swap(lowPoint, highPoint);
+            printStep(low, high, lowPoint, highPoint);
         }
-        printStep(low, high, low, lowPoint);
         
         swap(low, lowPoint);
+        printStep(low, high, low, lowPoint);
         
         // Left and right partitions are sorted relative to pivot
-        // highPoint == lowPoint == pivotPos
+        // highPoint == lowPoint == pivotPos (low)
         // Only attempt to sort partitions that have 2 or more elements
         if(lowPoint - 1 > low) sort(low, lowPoint - 1);
         if(lowPoint + 1 < high) sort(lowPoint + 1, high);
